@@ -53,6 +53,10 @@ http.onreadystatechange = function () {
 	}
 };
 
+function centerMapToMarker() {
+	map.setCenter(marker.getPosition());
+}
+
 // refreshes map and iss location every 6 minutes
 setInterval(() => {
 	http.open("GET", url);

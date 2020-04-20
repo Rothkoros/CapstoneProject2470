@@ -7,10 +7,36 @@
 				height: 500px; /* The height is 400 pixels */
 				width: 100%; /* The width is the width of the web page */
 			}
+			.titleRow {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			.issBtn {
+				background-color: antiquewhite;
+				border: 1px solid gainsboro;
+				border-radius: 5px;
+				cursor: pointer;
+				max-width: 50px;
+				max-height: 50px;
+			}
+			.issLogo {
+				width: 100%;
+			}
 		</style>
 	</head>
 	<body>
-		<h3>Where over the world is the International Space station?</h3>
+		<div class="titleRow">
+			<h3>Where over the world is the International Space station?</h3>
+			<div class="issBtn" onclick="centerMapToMarker()">
+				<img
+					src="./images/iss.png"
+					class="issLogo"
+					alt="snap to center"
+					title="snap to center"
+				/>
+			</div>
+		</div>
 		<div id="map"></div>
 		<script src="js/master.js"></script>
 		<script
