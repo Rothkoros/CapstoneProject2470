@@ -1,0 +1,23 @@
+{
+  "name": "capstoneproject2470",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rothkoros/CapstoneProject2470.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rothkoros/CapstoneProject2470/issues"
+  },
+  "homepage": "https://github.com/Rothkoros/CapstoneProject2470#readme",
+  "dependencies": {
+    "node-sass": "^4.14.0"
+  }
+}
