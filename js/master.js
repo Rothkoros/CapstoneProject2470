@@ -6,67 +6,61 @@ const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson
 		&longitude=-111.950684
 		&maxradiuskm=175`; // 175 is half of Utah's height on a map in KM
 let markers,
-  center,
-  map = undefined;
+	center,
+	map = undefined;
 
 http.open("GET", url);
 http.send();
 
 // Formatting date to YYYY-MM-DD for the API
 function formatDate(date) {
-  let d = new Date(date),
-    month = "" + (d.getMonth() + 1),
-    day = "" + d.getDate(),
-    year = d.getFullYear();
+	let d = new Date(date),
+		month = "" + (d.getMonth() + 1),
+		day = "" + d.getDate(),
+		year = d.getFullYear();
 
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
+	if (month.length < 2) month = "0" + month;
+	if (day.length < 2) day = "0" + day;
 
-  return [year, month, day].join("-");
+	return [year, month, day].join("-");
 }
 
 function initMap() {
-  center = { lat: 40.7608, lng: -111.891 };
+	center = { lat: 39.521, lng: -111.0937 };
 
-  map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 5,
-    center,
-  });
+	map = new google.maps.Map(document.getElementById("map"), {
+		zoom: 6.5,
+		center,
+	});
 
-  marker = new google.maps.Marker({
-    map: map,
-  });
+	marker = new google.maps.Marker({
+		map,
+	});
 }
 
 http.onreadystatechange = function () {
-  if (this.readyState === 4 && this.status === 200) {
-    if (map) {
-      let response = JSON.parse(http.responseText);
-      console.log(response);
+	if (this.readyState === 4 && this.status === 200) {
+		if (map) {
+			let response = JSON.parse(http.responseText);
+			console.log(response);
 
-      markers = response.features.map((feature) => {
-        return new google.maps.Marker({
-          map: map,
-          position: {
-            lat: feature.geometry.coordinates[1],
-            lng: feature.geometry.coordinates[0],
-          },
-          title: feature.properties.title,
-        });
-      });
-    } else {
-      http.open("GET", url);
-      http.send();
-    }
-  }
+			markers = response.features.map((feature) => {
+				return new google.maps.Marker({
+					map: map,
+					position: {
+						lat: feature.geometry.coordinates[1],
+						lng: feature.geometry.coordinates[0],
+					},
+					title: feature.properties.title,
+				});
+			});
+		} else {
+			http.open("GET", url);
+			http.send();
+		}
+	}
 };
 
 function centerMapToMarker() {
-  map.setCenter(marker.getPosition());
+	map.setCenter(marker.getPosition());
 }
-
-// refreshes map and iss location every 6 minutes
-// setInterval(() => {
-// 	http.open("GET", url);
-// 	http.send();
-// }, 50000);
