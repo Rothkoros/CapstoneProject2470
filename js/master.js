@@ -4,7 +4,7 @@ const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson
 		&endtime=${formatDate(new Date())}
 		&latitude=39.419220
 		&longitude=-111.950684
-		&maxradiuskm=175`;
+		&maxradiuskm=175`; // 175 is half of Utah's height on a map in KM
 let markers,
   center,
   map = undefined;
