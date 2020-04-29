@@ -74,27 +74,30 @@ function filterMag(mag) {
 	//filter response data for mag filtration
 	let filterFunc;
 	if (mag < 1) {
-		filterFunc = mag < 1;
+		filterFunc = (mag) => mag < 1;
 	} else if (mag >= 1 && mag < 2) {
-		filterFunc = mag >= 1 && mag < 2;
+		filterFunc = (mag) => mag >= 1 && mag < 2;
 	} else if (mag >= 2 && mag < 3) {
-		filterFunc = mag >= 2 && mag < 3;
+		filterFunc = (mag) => mag >= 2 && mag < 3;
 	} else if (mag >= 3 && mag < 4) {
-		filterFunc = mag >= 3 && mag < 4;
+		filterFunc = (mag) => mag >= 3 && mag < 4;
 	} else if (mag >= 4 && mag < 5) {
-		filterFunc = mag >= 4 && mag < 5;
+		filterFunc = (mag) => mag >= 4 && mag < 5;
 	} else if ((mag >= 5 && mag > 7) || mag === 5.7) {
-		filterFunc = (mag >= 5 && mag > 7) || mag === 5.7;
+		filterFunc = (mag) => (mag >= 5 && mag > 7) || mag === 5.7;
 	} else if (mag >= 7) {
-		filterFunc = mag >= 7;
+		filterFunc = (mag) => mag >= 7;
 	} else {
-		filterFunc = true;
+		filterFunc = (mag) => true;
 	}
-	let filteredMags = response.properties.mag.filter((mag) => filterFunc);
+	let filteredMags = response.features.filter(({ properties: { mag } }) =>
+		filterFunc(mag)
+	);
+	mapMarkers(filteredMags);
 }
 
-function mapMarkers(data) {
-	markers = data.features.map((feature) => {
+function mapMarkers(features) {
+	markers = features.map((feature) => {
 		let color = "";
 		let mag = feature.properties.mag;
 		if (mag < 1) {
@@ -134,7 +137,7 @@ http.onreadystatechange = function () {
 	if (this.readyState === 4 && this.status === 200) {
 		if (map) {
 			response = JSON.parse(http.responseText);
-			mapMarkers(response);
+			mapMarkers(response.features);
 		} else {
 			http.open("GET", url);
 			http.send();
