@@ -6,6 +6,7 @@ let url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&start
 )}&latitude=39.419220&longitude=-111.950684&maxradiuskm=175`; // 175 is half of Utah's height on a map in KM
 
 let center,
+	response,
 	map = undefined;
 let markers = [];
 
@@ -68,44 +69,72 @@ function clearMarkers() {
 	markers = [];
 }
 
+function filterMag(mag) {
+	clearMarkers();
+	//filter response data for mag filtration
+	let filterFunc;
+	if (mag < 1) {
+		filterFunc = mag < 1;
+	} else if (mag >= 1 && mag < 2) {
+		filterFunc = mag >= 1 && mag < 2;
+	} else if (mag >= 2 && mag < 3) {
+		filterFunc = mag >= 2 && mag < 3;
+	} else if (mag >= 3 && mag < 4) {
+		filterFunc = mag >= 3 && mag < 4;
+	} else if (mag >= 4 && mag < 5) {
+		filterFunc = mag >= 4 && mag < 5;
+	} else if ((mag >= 5 && mag > 7) || mag === 5.7) {
+		filterFunc = (mag >= 5 && mag > 7) || mag === 5.7;
+	} else if (mag >= 7) {
+		filterFunc = mag >= 7;
+	} else {
+		filterFunc = true;
+	}
+	let filteredMags = response.properties.mag.filter((mag) => filterFunc);
+}
+
+function mapMarkers(data) {
+	markers = data.features.map((feature) => {
+		let color = "";
+		let mag = feature.properties.mag;
+		if (mag < 1) {
+			color = "pink";
+		} else if (mag >= 1 && mag < 2) {
+			color = "purple";
+		} else if (mag >= 2 && mag < 3) {
+			color = "blue";
+		} else if (mag >= 3 && mag < 4) {
+			color = "green";
+		} else if (mag >= 4 && mag < 5) {
+			color = "yellow";
+		} else if ((mag >= 5 && mag > 7) || mag === 5.7) {
+			color = "orange";
+		} else if (mag >= 7) {
+			color = "red";
+		} else {
+			console.log(mag);
+			color = "orange";
+		}
+		let url = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
+		return new google.maps.Marker({
+			map: map,
+			position: {
+				lat: feature.geometry.coordinates[1],
+				lng: feature.geometry.coordinates[0],
+			},
+			title: feature.properties.title,
+			icon: {
+				url,
+			},
+		});
+	});
+}
+
 http.onreadystatechange = function () {
 	if (this.readyState === 4 && this.status === 200) {
 		if (map) {
-			let response = JSON.parse(http.responseText);
-			markers = response.features.map((feature) => {
-				let color = "";
-				let mag = feature.properties.mag;
-				if (mag < 1) {
-					color = "pink";
-				} else if (mag >= 1 && mag < 2) {
-					color = "purple";
-				} else if (mag >= 2 && mag < 3) {
-					color = "blue";
-				} else if (mag >= 3 && mag < 4) {
-					color = "green";
-				} else if (mag >= 4 && mag < 5) {
-					color = "yellow";
-				} else if ((mag >= 5 && mag > 7) || mag === 5.7) {
-					color = "orange";
-				} else if (mag >= 7) {
-					color = "red";
-				} else {
-					console.log(mag);
-					color = "orange";
-				}
-				let url = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
-				return new google.maps.Marker({
-					map: map,
-					position: {
-						lat: feature.geometry.coordinates[1],
-						lng: feature.geometry.coordinates[0],
-					},
-					title: feature.properties.title,
-					icon: {
-						url,
-					},
-				});
-			});
+			response = JSON.parse(http.responseText);
+			mapMarkers(response);
 		} else {
 			http.open("GET", url);
 			http.send();
