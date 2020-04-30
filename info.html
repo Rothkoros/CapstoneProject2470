@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Bootstrap  -->
+		
+                <link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="./css/main.css" />
+		<!-- Scripts -->
+		<script defer src="js/master.js"></script>
+		<script
+			async
+			defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRd1_CPsqHoazig0grvefwJ62fpCsBm8I&callback=initMap"
+		></script>
+                <script src="custom.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Earthquake Watch</a>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item" id="1">
+						<a class="nav-link" href="index.html#" onclick="changeURL(1)">24 Hours</a>
+					</li>
+					<li class="nav-item" id="30">
+						<a class="nav-link" href="index.html#" onclick="changeURL(30)">30 Days</a>
+					</li>
+					<li class="nav-item" id="180">
+						<a class="nav-link" href="index.html#" onclick="changeURL(180)">6 months</a>
+					</li>
+					<li class="nav-item" id="365">
+						<a class="nav-link" href="index.html#" onclick="changeURL(365)">Year</a>
+					</li>
+                                        <li class="nav-item">
+						<a class="nav-link" href="safety.html">Earthquake Safety</a>
+					</li>
+                                        <li class="nav-item">
+						<a class="nav-link" href="info.html">Information</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="flex-center">
+			<h2 id="title">
+				About this Site
+			</h2>
+                    
+                    
+		</div>
+		<br>
+                 
+                <div id="accordion" class="container">
+                    <h3><center>Group Project CSIS 2470</center></h3>
+      <div>
+        <p>
+        <center>This Site was created by Nicholas Dombrosky, Chester Hansen, Skylar Nicholes and Joy Cone-Coder. We are Students attending Salt Lake Community College, and as part of our Final Project in our Advanced JavaScript class we choose to implement our new skills using JavaScript along with our knowledge of HTML and CSS. We also added a feature to pull information from google's API service which allows us to display earthquake locations from certain times in real time.</center>
+        </p>
+        <br>
+        <h3>
+            <center>About Google's API service</center>
+        </h3>
+        <p>
+        <center>If you want to learn more about google's API service click on this <a href="https://developers.google.com/apis-explorer">link</a></center>
+        </p>
+        <br>
+        <h3>
+            <center>Sources</center>
+                
+        </h3>
+        <p>
+        <center><a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/earthquake.html">Red Cross Earthquake Safety</a></center>
+        </p>
+      </div>
+                </div>
+	</body>
+</html>
+
