@@ -27,7 +27,7 @@
 		<!-- CSS -->
 		<link rel="stylesheet" href="./css/main.css" />
 		<!-- Scripts -->
-		<script defer src="js/master.js"></script>
+		<script defer src="./js/master.js"></script>
 		<script
 			async
 			defer
@@ -36,7 +36,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Earthquake Watch</a>
+			<a class="navbar-brand" href="./index.html">Earthquake Watch</a>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -50,11 +50,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item active" id="1">
-						<a class="nav-link" href="./index.html">Home<span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item" id="30">
-						<a class="nav-link" href="./html/map.html">Earthquake Map</a>
+					<li class="nav-item" id="1">
+						<a class="nav-link active" href="./index.html"
+							>Home<span class="sr-only">(current)</span></a
+						>
 					</li>
 					<li class="nav-item" id="180">
 						<a class="nav-link" href="./html/safety.html">Earthquake Safety</a>
@@ -66,7 +65,56 @@
 			</div>
 		</nav>
 		<div class="flex-center">
-			<h3 class="title">Title Page</h3>
+			<h3 id="title">
+				Utah - Past 24 hours
+			</h3>
+		</div>
+		<div class="card">
+			<div id="map" class="card-body"></div>
+		</div>
+		<div class="card-body">
+			<h6 class="card-subtitle mb-2 text-muted">Filter by</h6>
+			<div class="btn-group" role="group">
+				<button class="btn btn-secondary" type="button" onclick="changeURL(1)">
+					24 Hours
+				</button>
+				<button class="btn btn-secondary" type="button" onclick="changeURL(30)">
+					30 Days
+				</button>
+				<button
+					class="btn btn-secondary"
+					type="button"
+					onclick="changeURL(180)"
+				>
+					6 Months
+				</button>
+				<button
+					class="btn btn-secondary"
+					type="button"
+					onclick="changeURL(365)"
+				>
+					Year
+				</button>
+				<button
+					class="btn btn-secondary dropdown-toggle"
+					type="button"
+					id="dropdownMenuButton"
+					data-toggle="dropdown"
+					aria-haspopup="true"
+					aria-expanded="false"
+				>
+					Magnitude
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#" onclick="filterMag(0)">< 1.0</a>
+					<a class="dropdown-item" href="#" onclick="filterMag(1)">1.0 - 2.0</a>
+					<a class="dropdown-item" href="#" onclick="filterMag(2)">2.0 - 3.0</a>
+					<a class="dropdown-item" href="#" onclick="filterMag(3)">3.0 - 4.0</a>
+					<a class="dropdown-item" href="#" onclick="filterMag(4)">4.0 - 5.0</a>
+					<a class="dropdown-item" href="#" onclick="filterMag(5)">5.0 - 7.0</a>
+					<a class="dropdown-item" href="#" onclick="filterMag(7)">> 7.0</a>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

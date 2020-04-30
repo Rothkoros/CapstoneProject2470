@@ -25,18 +25,13 @@
 		></script>
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../css/accordion.css" />
 		<!-- Scripts -->
-		<script defer src="../js/master.js"></script>
-		<script
-			async
-			defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRd1_CPsqHoazig0grvefwJ62fpCsBm8I&callback=initMap"
-		></script>
+		<script defer src="js/master.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Earthquake Watch</a>
+			<a class="navbar-brand" href="../index.html">Earthquake Watch</a>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -53,18 +48,160 @@
 					<li class="nav-item" id="1">
 						<a class="nav-link" href="../index.html">Home</a>
 					</li>
-					<li class="nav-item" id="30">
-						<a class="nav-link" href="./map.html">Earthquake Map</a>
+					<li class="nav-item">
+						<a class="nav-link active" href="./safety.html"
+							>Earthquake Safety<span class="sr-only">(current)</span></a
+						>
 					</li>
-					<li class="nav-item active" id="180">
-						<a class="nav-link" href="./safety.html">Earthquake Safety<span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item" id="365">
+					<li class="nav-item">
 						<a class="nav-link" href="./info.html">Information</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
-		<div class="flex-center"></div>
+		<div class="flex-center">
+			<span id="logo"
+				><center><h1>Earthquake Safety</h1></center></span
+			>
+			<div id="colorstrip" />
+		</div>
+		<br />
+		<center>
+			<img
+				class="img-responsive"
+				src="../images/earthquake.jpg"
+				alt="logo"
+				height="155"
+				width="300"
+			/>
+		</center>
+		<br />
+		<h4>
+			<center>
+				If an earthquake occurs, here are steps to take to keep yourself safe
+			</center>
+		</h4>
+		<br />
+		<h4><center>click on each step to open instructions</center></h4>
+
+		<br />
+		<main id="accordion">
+			<section id="step1">
+				<a href="#step1"><h1>Prepare In Advance</h1></a>
+				<p>
+					Talk about earthquakes with your family so that everyone knows what to
+					do in case of an earthquake. Discussing ahead of time helps reduce
+					fear, particularly for younger children
+					<br />
+					Check at your workplace and your children's schools and day care
+					centers to learn about their earthquake emergency plans.
+					<br />
+					Pick safe places in each room of your home, workplace and/or school. A
+					safe place could be under a piece of furniture or against an interior
+					wall away from windows, bookcases or tall furniture that could fall on
+					you.
+					<br />
+					Practice DROP, COVER and HOLD ON in each safe place.
+					<br />
+					Make sure you have access to NOAA radio broadcasts:
+					<br />
+					Find an online NOAA radio station
+					<br />
+					Search for a NOAA radio app
+					<br />
+					Purchase a battery-powered or hand-crank NOAA radio.
+					<br />
+					Keep a flashlight and any low-heeled shoes by each person’s bed.
+					<br />
+					Prepare a pet emergency kit for your companion animals.
+					<br />
+					Bolt and brace water heaters and gas appliances to wall studs. Have a
+					professional install flexible fittings to avoid gas or water leaks.
+					<br />
+					Do not hang heavy items, such as pictures and mirrors, near beds,
+					couches and anywhere people sleep or sit.
+					<br />
+					Install strong latches or bolts on cabinets. Large or heavy items
+					should be closest to the floor.
+					<br />
+					Learn how to shut off the gas valves in your home and keep a wrench
+					handy for that purpose.
+					<br />
+					Place large and heavy objects and breakable items (bottled foods,
+					glass or china) on lower shelves.
+					<br />
+					Anchor overhead lighting fixtures to joists.
+					<br />
+					Anchor top-heavy, tall and freestanding furniture such as bookcases,
+					china cabinets to wall studs to keep these from toppling over.
+					<br />
+					Ask about home repair and strengthening tips for exterior features,
+					such as porches, decks, sliding glass doors, canopies, carports and
+					garage doors.
+					<br />
+					Learn about your area’s seismic building standards and land use codes
+					before you begin new construction.
+					<br />
+					Have a professional make sure your home is securely anchored to its
+					foundation, as well as strengthening tips for exterior features, such
+					as porches, decks, sliding glass doors, canopies, carports and garage
+					doors.
+				</p>
+			</section>
+			<section id="step2">
+				<a href="#step2"><h1>During the Earthquake</h1></a>
+				<p>
+					If you are inside you should:
+					<br />
+					DROP, COVER and HOLD ON!
+					<br />
+					Move as little as possible - most injuries during earthquakes occur
+					because of people moving around, falling and suffering sprains,
+					fractures and head injuries.
+					<br />
+					Try to protect your head and torso.
+					<br />
+					If you are in bed, stay there, curl up and hold on, and cover your
+					head.
+					<br />
+					Stay indoors until the shaking stops and you are sure it is safe to
+					exit.
+					<br />
+					If you must leave a building after the shaking stops, use stairs
+					rather than an elevator in case of aftershocks, power outages or other
+					damage.
+					<br />
+					Be aware that smoke alarms and sprinkler systems frequently go off in
+					buildings during an earthquake, even if there is no fire.
+					<br />
+					If you smell gas, get out of the house and move as far away as
+					possible.
+					<br />
+					Before you leave any building check to make sure that there is no
+					debris from the building that could fall on you.
+				</p>
+			</section>
+			<section id="step3">
+				<a href="#step3"><h1>After the Earthquake</h1></a>
+				<p>
+					If away from home, return only when authorities say it is safe to do
+					so.
+					<br />
+					Check yourself for injuries and get first aid, if necessary, before
+					helping injured or trapped persons.
+					<br />
+					After an earthquake, the disaster may continue. Expect and prepare for
+					potential aftershocks, landslides or even a tsunami if you live on a
+					coast.
+					<br />
+					Each time you feel an aftershock, DROP, COVER and HOLD ON. Aftershocks
+					frequently occur minutes, days, weeks and even months following an
+					earthquake.
+					<br />
+					Look for and extinguish small fires. Fire is the most common hazard
+					after an earthquake.
+				</p>
+			</section>
+		</main>
 	</body>
 </html>
