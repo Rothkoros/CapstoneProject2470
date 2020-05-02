@@ -73,46 +73,140 @@
 			<div id="map" class="card-body"></div>
 		</div>
 		<div class="card-body">
-			<h6 class="card-subtitle mb-2 text-muted">Filter by</h6>
-			<div class="btn-group" role="group">
-				<button class="btn btn-secondary" type="button" onclick="changeURL(1)">
-					24 Hours
-				</button>
-				<button class="btn btn-secondary" type="button" onclick="changeURL(30)">
-					30 Days
-				</button>
-				<button
-					class="btn btn-secondary"
-					type="button"
-					onclick="changeURL(180)"
-				>
-					6 Months
-				</button>
-				<button
-					class="btn btn-secondary"
-					type="button"
-					onclick="changeURL(365)"
-				>
-					Year
-				</button>
-				<button
-					class="btn btn-secondary dropdown-toggle"
-					type="button"
-					id="dropdownMenuButton"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false"
-				>
-					Magnitude
-				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#" onclick="filterMag(0)">< 1.0</a>
-					<a class="dropdown-item" href="#" onclick="filterMag(1)">1.0 - 2.0</a>
-					<a class="dropdown-item" href="#" onclick="filterMag(2)">2.0 - 3.0</a>
-					<a class="dropdown-item" href="#" onclick="filterMag(3)">3.0 - 4.0</a>
-					<a class="dropdown-item" href="#" onclick="filterMag(4)">4.0 - 5.0</a>
-					<a class="dropdown-item" href="#" onclick="filterMag(5)">5.0 - 7.0</a>
-					<a class="dropdown-item" href="#" onclick="filterMag(7)">> 7.0</a>
+			<div class="row">
+				<div class="card-body">
+					<h6 class="card-subtitle mb-2 text-muted">Filter by</h6>
+					<div class="btn-group" role="group">
+						<button
+							class="btn btn-secondary"
+							type="button"
+							onclick="changeURL(1)"
+						>
+							24 Hours
+						</button>
+						<button
+							class="btn btn-secondary"
+							type="button"
+							onclick="changeURL(30)"
+						>
+							30 Days
+						</button>
+						<button
+							class="btn btn-secondary"
+							type="button"
+							onclick="changeURL(180)"
+						>
+							6 Months
+						</button>
+						<button
+							class="btn btn-secondary"
+							type="button"
+							onclick="changeURL(365)"
+						>
+							Year
+						</button>
+						<button
+							class="btn btn-secondary dropdown-toggle"
+							type="button"
+							id="dropdownMenuButton"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							Magnitude
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#" onclick="filterMag(0)">< 1.0</a>
+							<a class="dropdown-item" href="#" onclick="filterMag(1)"
+								>1.0 - 2.0</a
+							>
+							<a class="dropdown-item" href="#" onclick="filterMag(2)"
+								>2.0 - 3.0</a
+							>
+							<a class="dropdown-item" href="#" onclick="filterMag(3)"
+								>3.0 - 4.0</a
+							>
+							<a class="dropdown-item" href="#" onclick="filterMag(4)"
+								>4.0 - 5.0</a
+							>
+							<a class="dropdown-item" href="#" onclick="filterMag(5)"
+								>5.0 - 7.0</a
+							>
+							<a class="dropdown-item" href="#" onclick="filterMag(7)">> 7.0</a>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body">
+						<h5 class="subtitle">Legend</h5>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Icon</th>
+									<th scope="col">Color</th>
+									<th scope="col">Magnitude</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png"
+									</td>
+									<td>Pink</td>
+									<td>Less than 1.0 Magnitude</td>
+								</tr>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/purple-dot.png"
+									</td>
+									<td>Purple</td>
+									<td>Between 1.0 and 2.0 Magnitudes</td>
+								</tr>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+									</td>
+									<td>Blue</td>
+									<td>Between 2.0 and 3.0 Magnitudes</td>
+								</tr>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+									</td>
+									<td>Green</td>
+									<td>Between 3.0 and 4.0 Magnitudes</td>
+								</tr>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png"
+									</td>
+									<td>Orange</td>
+									<td>Between 4.0 and 5.0 Magnitudes</td>
+								</tr>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+									</td>
+									<td>Yellow</td>
+									<td>Between 5.0 and 7.0 Magnitudes</td>
+								</tr>
+								<tr>
+									<td>
+										<img
+										src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+									</td>
+									<td>Red</td>
+									<td>Greater than 7.0 Magnitude</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
